@@ -1,0 +1,15 @@
+{
+  "name": "tiny-virtual-dom-ts",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/y-temp4/tiny-virtual-dom-ts.git",
+  "author": "y-temp4 <y.temp4@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "sample": "parcel examples/sample/index.html --open"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "typescript": "^4.0.2"
+  }
+}
