@@ -10,9 +10,13 @@ type Properties = {
   [K in string]: Properties | string;
 };
 
-type Children = string[];
+type Children = (Node | string)[];
 
-export function h(tagName: string, props: Properties, ...children: Children) {
+export function h(
+  tagName: string,
+  props: Properties | null,
+  ...children: Children
+) {
   if (isArray(head(children))) {
     children = head(children);
   }
@@ -70,7 +74,7 @@ function removeProp($el: any, name: string) {
 export function patch(
   $parent: HTMLElement | ChildNode,
   newTree: Node | string | undefined,
-  oldTree: Node | string | undefined,
+  oldTree?: Node | string | undefined,
   index = 0
 ) {
   if (!oldTree && newTree) {
