@@ -5,9 +5,9 @@ const $rootElement = document.getElementById("app");
 var currentTree = h(
   "ul",
   null,
-  h("li", { style: { color: "#090" } }, "One"),
-  h("li", { style: { color: "#900" } }, "Two"),
-  h("li", { style: { color: "#009" } }, "Three")
+  h("li", { style: { color: "red" } }, "One"),
+  h("li", { style: { color: "blue" } }, "Two"),
+  h("li", { style: { color: "green" } }, "Three")
 );
 
 // first time
@@ -18,8 +18,8 @@ setTimeout(() => {
   let nextTree = h(
     "ul",
     null,
-    h("li", { style: { color: "#090" } }, "One"),
-    h("li", { style: { color: "#909" } }, "Two")
+    h("li", { style: { color: "red" } }, "One"),
+    h("li", { style: { color: "orange" } }, "Two")
   );
   patch($rootElement, nextTree, currentTree);
   currentTree = nextTree;
@@ -30,8 +30,8 @@ setTimeout(() => {
   let nextTree = h(
     "ul",
     null,
-    h("li", { style: { color: "#111" } }, "Hello"),
-    h("li", { style: { color: "#999" } }, "Hi!")
+    h("li", { style: { color: "purple" } }, "Hello"),
+    h("li", { style: { color: "gray" } }, "Hi!")
   );
   patch($rootElement, nextTree, currentTree);
   currentTree = nextTree;
