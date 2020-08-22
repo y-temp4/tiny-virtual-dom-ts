@@ -1,6 +1,6 @@
 import { isArray, isObject, head, merge } from "./helpers";
 
-type Node = {
+type VNode = {
   tagName: string;
   props: Properties;
   children: Children;
@@ -10,7 +10,7 @@ type Properties = {
   [K in string]: Properties | string;
 };
 
-type Children = (Node | string)[];
+type Children = (VNode | string)[];
 
 export function h(
   tagName: string,
@@ -23,7 +23,7 @@ export function h(
   return { tagName, props: props || {}, children };
 }
 
-function createElement(node: string | Node) {
+function createElement(node: string | VNode) {
   if (!isObject(node)) {
     return document.createTextNode(String(node));
   }
@@ -73,8 +73,8 @@ function removeProp($el: any, name: string) {
 
 export function patch(
   $parent: HTMLElement | ChildNode,
-  newTree: Node | string | undefined,
-  oldTree?: Node | string | undefined,
+  newTree: VNode | string | undefined,
+  oldTree?: VNode | string | undefined,
   index = 0
 ) {
   if (!oldTree && newTree) {
@@ -107,8 +107,8 @@ function changed(a: any, b: any) {
 
 function patchNodes(
   $parent: HTMLElement | ChildNode,
-  newTree: Node,
-  oldTree: Node,
+  newTree: VNode,
+  oldTree: VNode,
   index: number
 ) {
   const len = Math.max(newTree.children.length, oldTree.children.length);
